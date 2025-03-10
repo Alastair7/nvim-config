@@ -1,0 +1,29 @@
+
+# Neovim backup, swap, and undo files
+backup/
+swap/
+undo/
+
+# Lazy.nvim plugin downloads and caches
+lazy/
+site/
+
+# LSP, Treesitter, and Mason installed binaries
+nvim-lspconfig/
+nvim-treesitter/
+
+# Log files
+log/
+*.log
+
+# Session and history files
+session/
+shada/
+
+# Plugin lockfiles (if not necessary)
+lazy-lock.json
+
+# Personal files (modify as needed)
+personal.lua
+secrets.vim
+secrets.lua
