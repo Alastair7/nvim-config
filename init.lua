@@ -14,27 +14,27 @@ vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 
 vim.api.nvim_create_autocmd('TextYankPost', {
-   desc = 'Highlight when yanking (copying) text',
-   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-   callback = function()
-      vim.highlight.on_yank()
-   end
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end
 })
 
 vim.api.nvim_create_autocmd('TermOpen', {
-   group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
-   callback = function()
-      vim.opt.number = false
-      vim.opt.relativenumber = false
-   end,
+  group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
+  callback = function()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+  end,
 })
 
 vim.diagnostic.config({
-   virtual_text = true,
-   signs = true,
-   underline = true,
-   update_in_insert = false,
-   severity_sort = true,
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
 })
 
 vim.keymap.set("n", "-", "<cmd>Oil<CR>")

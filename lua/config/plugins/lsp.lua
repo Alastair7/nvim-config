@@ -28,9 +28,11 @@ return {
       require("lspconfig").clangd.setup { capabilities = capabilities }
       require('lspconfig').ts_ls.setup({
         capailities = capabilities,
+        cmd = { "typescript-language-server", "--stdio" },
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
         root_dir = require('lspconfig.util').root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
       })
+
       require("lspconfig").gopls.setup({
         capabilities = capabilities,
         settings = {
@@ -51,6 +53,13 @@ return {
       require('lspconfig').golangci_lint_ls.setup {
         capabilities = capabilities,
         cmd = { 'golangci-lint-langserver' },
+        init_options = {
+          command = {
+            "golangci-lint",
+            "run",
+            "--out-format=json",
+          },
+        },
         filetypes = { 'go' },
         root_dir = require('lspconfig').util.root_pattern('.git', 'go.mod', 'Makefile'),
       }
