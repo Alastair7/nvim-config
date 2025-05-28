@@ -30,7 +30,40 @@ return {
         capailities = capabilities,
         cmd = { "typescript-language-server", "--stdio" },
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-        root_dir = require('lspconfig.util').root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
+        root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
+      })
+
+      require("lspconfig").css_variables.setup({
+        cmd = { "css-variables-language-server", "--stdio" },
+        filetypes = { "css", "scss", "less" },
+        root_markers = { "package.json", ".git" },
+
+        settings = {
+          cssVariables = {
+            blacklistFolders = { "**/.cache", "**/.DS_Store", "**/.git", "**/.hg", "**/.next", "**/.svn", "**/bower_components", "**/CVS", "**/dist", "**/node_modules", "**/tests", "**/tmp" },
+            lookupFiles = { "**/*.less", "**/*.scss", "**/*.sass", "**/*.css" }
+          }
+        }
+
+      })
+
+      require("lspconfig").cssls.setup({
+        capabilities = capabilities,
+        cmd = { "vscode-css-language-server", "--stdio" },
+        filetypes = { "css", "scss", "less" },
+        init_options = { provideFormatter = true },
+        root_markers = { "package.json", ".git" },
+        settings = {
+          css = {
+            validate = true
+          },
+          less = {
+            validate = true
+          },
+          scss = {
+            validate = true
+          }
+        }
       })
 
       require("lspconfig").gopls.setup({
