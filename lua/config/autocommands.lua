@@ -1,3 +1,4 @@
+-- RANDOM UTILS AUTOCOMMANDS
 vim.api.nvim_create_augroup('custom', { clear = true })
 
 
@@ -9,7 +10,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end
 })
 
--- Open a custom erminal within Neovim.
+-- Open a custom terminal within Neovim.
 vim.api.nvim_create_autocmd('TermOpen', {
   group = 'custom',
   callback = function()
