@@ -32,6 +32,7 @@ return {
       require("config.plugins.lsp.cssls").setup(lspconfig, capabilities)
       require("config.plugins.lsp.gopls").setup(lspconfig, capabilities)
       require("config.plugins.lsp.golangci_lint_ls").setup(lspconfig, capabilities)
+      require("config.plugins.lsp.pyright").setup(lspconfig, capabilities)
     end
   }
 }

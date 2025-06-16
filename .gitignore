@@ -20,8 +20,6 @@ log/
 session/
 shada/
 
-# Plugin lockfiles (if not necessary)
-lazy-lock.json
 
 # Personal files (modify as needed)
 personal.lua

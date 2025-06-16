@@ -14,12 +14,16 @@ vim.keymap.set("v", "<space>x", ":lua<CR>")
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 
+-- Get List of diagnostics
+vim.keymap.set("n", "grl", ":lua vim.diagnostic.setqflist()<CR>")
+
 vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = true,
+   virtual_text = true,
+   signs = true,
+   underline = true,
+   update_in_insert = false,
+   severity_sort = true,
 })
+
 
 vim.keymap.set("n", "-", "<cmd>Oil<CR>")
