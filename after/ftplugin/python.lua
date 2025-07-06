@@ -9,5 +9,3 @@ set.expandtab = true
 -- Editor UI
 set.number = true
 set.relativenumber = true
-
-vim.treesitter.start()

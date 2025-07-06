@@ -9,7 +9,7 @@ return {
       require('telescope').setup {
         defaults = {
           preview = {
-            treesitter = false
+            treesitter = true
           }
         },
         pickers = {
