@@ -11,7 +11,7 @@ function M.setup(lspconfig, capabilities)
           compositeLiteralTypes = true,
           constantValues = true,
           functionTypeParameters = true,
-          parameterNames = true,
+          parameterNames = false,
           rangeVariableTypes = true,
         },
       }
