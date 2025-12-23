@@ -23,6 +23,10 @@ return {
         nerd_font_variant = 'mono'
       },
 
+      sources = {
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
+      },
+
       completion = { documentation = { auto_show = false } },
 
       signature = { enabled = true },
