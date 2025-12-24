@@ -31,7 +31,7 @@ return {
       vim.keymap.set("n", "<F3>", dap.step_over)
       vim.keymap.set("n", "<F4>", dap.step_out)
       vim.keymap.set("n", "<F5>", dap.step_back)
-      vim.keymap.set("n", "<leader>dq", function()
+      vim.keymap.set("n", "<F6>", function()
         require("dap").terminate()
         require("dapui").close()
         require("nvim-dap-virtual-text").refresh()
