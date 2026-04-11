@@ -19,6 +19,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
   end,
 })
 
+
 -- LSP RELATED AUTOCOMMANDS
 vim.api.nvim_create_augroup('LspFormatting', { clear = true })
 

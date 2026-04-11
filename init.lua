@@ -3,6 +3,7 @@ print("Welcome, Alastair!")
 require("config.lazy")
 require('config.autocommands')
 require('config.diagnostic')
+require('config.treesitter')
 
 vim.opt.shiftwidth = 3
 vim.opt.clipboard = "unnamedplus"
