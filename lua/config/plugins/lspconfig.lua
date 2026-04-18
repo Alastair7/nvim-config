@@ -23,49 +23,51 @@ return {
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+      local function setup(server, opts)
+        opts = opts or {}
+        local server_capabilities = opts.capabilities or {}
+
+        opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server_capabilities)
+
+        vim.lsp.config(server, opts)
+        vim.lsp.enable(server)
+      end
+
       -- Golang configuration linter + lsp
-      vim.lsp.config('gopls', { capabilities = capabilities })
-      vim.lsp.config('golangci_lint_ls', { capabilities = capabilities })
-
-
-      vim.lsp.enable('gopls', true)
-      vim.lsp.enable('golangci_lint_ls', true)
+      setup('gopls')
+      setup('golangci_lint_ls')
 
       -- Python LSP
-      vim.lsp.config('basedpyright', { capabilities = capabilities })
-      vim.lsp.enable("basedpyright", true)
-
-
-
-      vim.lsp.config('ruff', {
-        cmd = { "ruff", "server" },
-        capabilities = capabilities
-      })
-      vim.lsp.enable('ruff')
+      setup('basedpyright')
+      setup('ruff', { cmd = { "ruff", "server" }, })
 
       -- Lua lsp server
-      vim.lsp.config('lua_ls', { capabilities = require('blink.cmp').get_lsp_capabilities() })
-      vim.lsp.enable('lua_ls', true)
+      setup('lua_ls', require('config.plugins.lsp.lua_ls'))
 
       -- Typescript / Javascript / React TSX and JSX
-      vim.lsp.config('ts_ls', { capabilities = require('blink.cmp').get_lsp_capabilities() })
-      vim.lsp.enable('ts_ls', true)
+      setup('vtsls')
 
       -- CSS / SCSS
-
-      vim.lsp.config('cssls', { capabilities = require('blink.cmp').get_lsp_capabilities() })
-      vim.lsp.config('css_variables', { capabilities = require('blink.cmp').get_lsp_capabilities() })
-
-      vim.lsp.enable('cssls', true)
-      vim.lsp.enable('css_variables', true)
+      setup('cssls')
+      setup('css_variables')
 
       -- C / C++
-      vim.lsp.config('clangd', { capabilities = require('blink.cmp').get_lsp_capabilities() })
-      vim.lsp.enable('clangd', true)
+      setup('clangd')
 
       -- SVELTE LSP
-      vim.lsp.config('svelte', { capabilities = require('blink.cmp').get_lsp_capabilities() })
-      vim.lsp.enable('svelte')
+      setup('svelte', {
+        filetypes = { "svelte", "typescript", "javascript" },
+        capabilities = {
+          workspace = {
+            didChangeWatchedFiles = false
+          }
+        },
+        settings = {
+          svelte = {
+            defaultScriptLanguage = "ts"
+          }
+        }
+      })
     end
   }
 }

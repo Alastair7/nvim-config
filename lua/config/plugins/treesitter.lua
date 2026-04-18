@@ -1,8 +1,9 @@
 return {
   {
-    "neovim-treesitter/nvim-treesitter",
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    lazy = false,
-    build = ":TSUpdate",
+    "romus204/tree-sitter-manager.nvim",
+    dependencies = {},
+    config = function()
+      require("tree-sitter-manager").setup({})
+    end
   }
 }

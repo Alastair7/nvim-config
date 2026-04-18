@@ -29,6 +29,6 @@ vim.api.nvim_create_autocmd('FileType', {
 
     vim.b[args.buf].ts_started = true
 
-    pcall(vim.treesitter.start)
+    pcall(vim.treesitter.start, args.buf)
   end
 })
