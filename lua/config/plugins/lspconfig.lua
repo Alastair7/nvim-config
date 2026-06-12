@@ -56,7 +56,7 @@ return {
 
       -- SVELTE LSP
       setup('svelte', {
-        filetypes = { "svelte", "typescript", "javascript" },
+        filetypes = { "svelte" },
         capabilities = {
           workspace = {
             didChangeWatchedFiles = false
