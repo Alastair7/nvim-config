@@ -1,9 +1,16 @@
+-- return {
+--   {
+--     "romus204/tree-sitter-manager.nvim",
+--     dependencies = {},
+--     config = function()
+--       require("tree-sitter-manager").setup({})
+--     end
+--   }
+-- }
 return {
   {
-    "romus204/tree-sitter-manager.nvim",
-    dependencies = {},
-    config = function()
-      require("tree-sitter-manager").setup({})
-    end
+    'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    build = ':TSUpdate'
   }
 }
